@@ -1,0 +1,19 @@
+<div class="tabla_historial">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let h of historial">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          #{{h.id}}
+        </mat-panel-title>
+        <mat-panel-description>
+          Fecha Entrega: {{h.fechaEntrega}} | Fecha Pedido: {{h.fechaPedido}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <ul>
+        <li *ngFor="let i of h.items">
+          {{i.cantidad}} - {{i.plato}}
+        </li>
+      </ul>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

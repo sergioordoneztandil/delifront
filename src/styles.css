@@ -1,0 +1,385 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@font-face {
+  font-family: "Dosis";
+  src: local("Dosis Regular"), local("Dosis-Regular"), url("http://fonts.gstatic.com/s/dosis/v7/HhyaU5sn9vOmLzloC_WoEoZK.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+body{
+    background-color: #FFF;
+    background-size: 100%;
+    font-size: 0.9em ;
+    font-family: 'Dosis', sans-serif;
+    line-height: 1.8;
+    font-weight: 400;
+}
+.modal-login .modal-content {
+    text-align: center;
+}
+.login_container {
+    width: 450px;
+    margin: 120px auto;
+    box-shadow: 10px 10px 8px 10px #888888;
+    border-radius: 10px;
+}
+.login_container .login_pasos  {
+    padding: 20px 0 0 0;
+    text-align: center;
+}
+.login_container .login_pasos img {
+    height: 60px;
+}
+.alert-danger {
+    color: #FFF;
+    background-color: #dd3030;
+    border-color: #f5c6cb;
+    width: 99%;
+    float: left;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+.alert-success {
+    color: #FFF;
+    background-color: #449e58;
+    border-color: #f5c6cb;
+    width: 99%;
+    float: left;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+.header {
+
+}
+.header button {
+    float: right;
+    margin: 10px;
+}
+.modal-login {
+    color: #636363;
+    width: 350px;
+    margin: 10px auto;
+}
+.modal-login .modal-content {
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+}
+.modal-login .modal-header {
+    border-bottom: none;
+    position: relative;
+    justify-content: center;
+}
+.modal-login h4 {
+    text-align: center;
+    font-size: 26px;
+}
+.modal-login .form-group {
+    position: relative;
+    margin: 10px 0 0 0;
+}
+.modal-login i {
+    position: relative;
+    left: 25px;
+    top: 1px;
+    font-size: 18px;
+    color: #673ab7;
+}
+.modal-login .form-control {
+    padding-left: 40px !important;
+}
+.modal-login .form-control:focus {
+    border-color: #00ce81;
+}
+.modal-login .form-control, .modal-login .btn {
+    min-height: 40px;
+    border-radius: 3px;
+}
+.modal-login .hint-text {
+    text-align: center;
+    padding-top: 10px;
+}
+.modal-login .close {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+.modal-login .btn {
+    background: #28a745;
+    border: none;
+    line-height: normal;
+}
+.modal-login .btn:hover, .modal-login .btn:focus {
+    background-color: #28a745;
+}
+.modal-login .modal-footer {
+    background: #ecf0f1;
+    border-color: #dee4e7;
+    text-align: center;
+    margin: 12px 0 0 0;
+    border-radius: 5px;
+    font-size: 17px;
+    justify-content: center;
+}
+.modal-login .modal-footer a {
+    color: #999;
+}
+.modal-header i {
+    font-size: 33px;
+    left: unset;
+    top: unset;
+    position: relative;
+    margin: auto;
+}
+.modal-body .error-msg {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px;
+}
+.modal-login .btn:disabled {
+    background: #CCC;
+}
+.modal-login .form-control, .modal-login .btn {
+    min-height: 20px;
+    border-radius: 3px;
+}
+.mat-form-field-appearance-legacy .mat-form-field-label {
+    padding: 0 0 0 10px;
+}
+.logo_header {
+    text-align: center;
+}
+.product_header {
+    background-image: url(assets/img/header_bkg.png);
+}
+.product_header h3{
+    width: auto;
+}
+.product_header img{
+    height: 64px;
+    float: left;
+}
+.product_header .username, .product_header .cliente{
+    font-size: 16px;
+    font-weight: 700;
+}
+.mat-form-field-wrapper {
+    margin: 0 20px;
+}
+.market_menu {
+    width: 100%;
+    float: left;
+}
+.market_menu .menu_title {
+    width: 99%;
+    float: left;
+    background-color: #f6e338;
+    padding: 5px;
+    border-radius: 5px;
+    color: #673ab7;
+}
+.market_menu .menu_title span{
+    font-weight: 700;
+    font-size: 20px;
+}
+.market_product_container {
+  position: relative;
+  margin: 10px auto;
+  width: 20%;
+  height: 167px;
+  z-index: 1;
+  perspective: 1000;
+  float: left;
+}
+
+.market_product_container .market_product_card {
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  transform-style: preserve-3d;
+  transition: all .5s linear;
+  -webkit-transition: all .5s linear;
+  -moz-transition: all .5s linear;
+  -o-transition: all .5s linear;
+}
+
+.market_product_container:hover .market_product_card {
+  transform: rotateY(180deg);
+  box-shadow: -5px 5px 5px #aaa;
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  text-align: center;
+  overflow: hidden;
+}
+.face img{
+    width: 100%;
+}
+.face input{
+    text-align: right;
+}
+.face.back {
+  display: block;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  background-color: #83a6cc;
+}
+.face .cesta_detail {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 15px;
+    color: #673ab7;    
+}
+.cesta {
+    width: 35%;
+    float: right;
+    margin: 10px 0;
+    position: fixed;
+    z-index: 1090;
+    top: 0;
+    right: 0;
+}
+.cesta .mat-expansion-panel-header, .cesta .mat-expansion-panel-header:hover ,
+.mat-expansion-panel-header.mat-expanded:focus, .mat-expansion-panel-header.mat-expanded:hover,
+.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled="true"]):hover,
+.mat-expansion-panel-header.mat-expanded:hover,
+.mat-expansion-panel-header.mat-expanded {
+    background: skyblue !important;
+}
+.cesta .mat-accordion .mat-expansion-panel:last-of-type {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.cesta .mat-expansion-panel-header-title, .cesta .mat-expansion-panel-header-description,
+.cesta .mat-expansion-indicator::after {
+    color: #FFF;
+}
+.cesta .table {
+    width: 100%;
+}
+.cesta .table th, .cesta .table th {
+    padding: 2px 4px;
+    font-size: 12px;
+}
+.menu-empresa {
+    width: 100%;
+    float: left;
+}
+.menu-empresa .col-empleados {
+    width: 20%; 
+    float: left;
+}
+.menu-empresa .col-dias {
+    width: 20%; 
+    float: left;
+}
+.menu-empresa .col-platos {
+    width: 60%; 
+    float: left;
+}
+.menu-empresa .col-platos div.plato {
+    width: 100%;
+    float: left;
+}
+.menu-empresa .col-platos div.plato_nombre {
+    width: 50%;
+    float: left;
+    padding: 10px 0 0 0;
+}
+.menu-empresa .col-platos .img_plato_empresa {
+    width: 50px;
+    float: left;
+    margin: 4px;
+}
+.menu-empresa .mat-card-content {
+    height: 400px;
+    overflow: scroll;
+}
+.menu-empresa .mat-card-content div.ng-star-inserted {
+    padding: 0 7px;
+    border-radius: 3px;
+}
+.menu-empresa .mat-card-content .ng-star-inserted:hover{
+    background-color: #565c23;
+    color: #FFF;
+    cursor: pointer;
+}
+.menu-empresa .mat-card-content .highlighted {
+    background-color: #a7b343;
+    color: #FFF;
+}
+.menu-empresa .mat-card-content .nothighlighted {
+    background-color: #FFF;
+    color: #000;
+}
+.menu-empresa .mat-card-content .nothighlighted:hover,
+.menu-empresa .mat-card-content .nothighlighted:hover .mat-form-field-wrapper,
+.menu-empresa .mat-card-content .nothighlighted:hover .mat-form-field {
+    background-color: #FFF;
+    color: #000;
+}
+
+.mat-card-header-text .mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: .4375em 0;
+    font-size: 0.7em;
+}
+.col-platos .mat-card-header-text .mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: 0;
+    font-size: 0.7em;
+    width: 56px;
+}
+.col-platos .mat-card-header-text .mat-form-field-appearance-legacy .mat-form-field-infix input {
+    width: 100px;
+    float: left;
+}
+.tabla_historial {
+    float: left;
+    width: 100%;
+}
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 1.5;
+        background: #FFF;
+    }
+    .login_container {
+        margin-top: 3px !important;
+        padding: 0;
+    }
+    .login_container .login_pasos  {
+        padding: 0;
+        text-align: center;
+    }
+    .login_container .login_pasos img {
+        width: 100%;
+    }
+    .login_container .login_form {
+        padding: 0;
+    }
+    .login_container .login_form .modal-login {
+        width: 100%;
+    }
+    .login_container .login_form .modal-login .modal-content {
+        padding: 0;
+    }
+    .login_container .login_form .modal-login .modal-header {
+        padding: 0;
+    }
+    .login_container .login_form .modal-login .modal-footer {
+        margin: 0;
+    }
+    .login_container .login_form .modal-login .modal-header i {
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,87 @@
+
+  
+<div *ngIf="currentUser" class="product_header">
+  <img *ngIf="currentUser.cliente.logo"  alt="{{ currentUser.username }}" src="{{ currentUser.cliente.logo }}">
+<label class="username">{{ currentUser.username }} ({{ currentUser.cliente.nombre }})</label>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Fecha de entrega" [(ngModel)]="fechaEntrega">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="enviarPedido()">Enviar</button>
+</div>
+<div class="col-md-12">
+  <app-alert [alerts]="alerts"></app-alert>
+</div>
+<div class="menu-empresa">
+  <div class="col-empleados" >
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-form-field>
+              <mat-select placeholder="Tipo Selección" [(value)]="selectedTipo" (selectionChange)="changeTipo($event.value)">
+                <mat-option *ngFor="let tipoSeleccion of tiposSeleccion" [value]="tipoSeleccion.id">
+                  {{tipoSeleccion.nombre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-card-title>
+          <mat-card-subtitle>...</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div *ngFor="let empleado of empleados" (click)="selectEmployee($event, empleado.id)" [class.highlighted]="empleado.id === currentEmployee">
+              {{ empleado.legajo }} - {{ empleado.nombre }} <i *ngIf="cestaReferenceEmpresa[empleado.id]" class="fas fa-check-circle"></i>
+          </div>
+          <div *ngFor="let seccion of secciones" (click)="selectSeccion($event, seccion.id)" [class.highlighted]="seccion.id === currentEmployee">
+            {{ seccion.nombre }} <i *ngIf="cestaReferenceEmpresa[seccion.id]" class="fas fa-check-circle"></i>
+        </div>
+        </mat-card-content>
+      </mat-card>
+  </div>
+  <div class="col-dias" >
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>
+              <mat-form-field>
+                <mat-select placeholder="Periodo" [(value)]="selectedPeriodo" (selectionChange)="changePeriodo($event.value)">
+                  <mat-option *ngFor="let periodo of periodos" [value]="periodo.id">
+                    {{periodo.nombre}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+          </mat-card-title>
+          <mat-card-subtitle>...</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div *ngFor="let menu of menues" (click)="selectDay($event, menu.dia, menu.id)" [class.highlighted]="menu.dia === currentDay">
+              <div class="menu_title">{{ menu.dia }}<i *ngIf="cestaReferenceEmpresa[currentEmployee] && cestaReferenceEmpresa[currentEmployee][menu.dia]" class="fas fa-check-circle"></i></div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+  </div>
+    <div class="col-platos" >
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Platos</mat-card-title>
+          <mat-card-subtitle>...</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="plato" *ngFor="let plato of platos" (click)="selectPlato($event, plato.id, 1, plato.tipo)" 
+            [class.highlighted]="(!(secciones && secciones.length > 0)) 
+                        && (plato.id === currentPlato 
+                        || (cestaReferenceEmpresa[currentEmployee] != null 
+                        && cestaReferenceEmpresa[currentEmployee][currentDay] != null 
+                        && cestaReferenceEmpresa[currentEmployee][currentDay][plato.tipo] != null 
+                        && cestaReferenceEmpresa[currentEmployee][currentDay][plato.tipo][plato.id] ))" 
+            [class.nothighlighted]="secciones && secciones.length > 0"
+          >
+              <img class="img_plato_empresa" src="assets/img/product_dummy.jpeg"/>
+              <div class="plato_nombre">{{ plato.nombre }}</div>
+              <mat-form-field *ngIf="secciones && secciones.length > 0 " class="example-full-width">
+                <input #cantidad (keyup)="selectPlato($event, plato.id, cantidad.value, plato.tipo)" matInput class="form-control" type="text" placeholder="..."  style="width:25px; float:left;">
+              </mat-form-field>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+</div>

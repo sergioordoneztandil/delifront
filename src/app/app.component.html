@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="logo_header">
+  <img *ngIf="isLoggednIn()"  alt="Delibox" src="assets/img/logo_delibox.png">
+</div>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  loadingText="Cargando..."
+  type="ball-scale-multiple">
+</ngx-spinner>
+<app-header *ngIf=isLoggednIn()></app-header>
+<router-outlet></router-outlet>
+

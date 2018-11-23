@@ -1,0 +1,68 @@
+<div *ngIf="currentUser" class="product_header">
+  <img *ngIf="currentUser.cliente && currentUser.cliente.logo"  alt="{{ currentUser.username }}" src="{{ currentUser.cliente.logo }}">
+<label class="username">{{ currentUser.username }} ({{ currentUser.cliente.nombre }})</label>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="Fecha de entrega" [(ngModel)]="fechaEntrega">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="enviarPedido()">Enviar</button>
+</div>
+<div class="col-md-12">
+  <app-alert [alerts]="alerts"></app-alert>
+</div>
+<div *ngIf="cesta" class="cesta">
+    <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Cesta
+            </mat-panel-title>
+            <mat-panel-description>
+              {{cesta.items.length}} Items
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Plato</th>
+                  <th scope="col">Menu</th>
+                  <th scope="col">Día</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of cesta.items">
+                  <th scope="row">{{item.cantidad}}</th>
+                  <td>{{item.plato}}</td>
+                  <td>{{item.menu}}</td>
+                  <td>{{item.dia}} <a (click)="eliminarDeCesta(item.idPlato, item.dia)" ><i class="fas fa-minus-circle"></i></a></td>
+                </tr>
+              </tbody>
+            </table>
+        </mat-expansion-panel>
+      </mat-accordion>
+</div>
+<div *ngFor="let menu of menues" class="market_menu">
+  <div *ngFor="let plato of menu.platos" class="market_product_container">
+    <div class="shadow market_product_card">
+      <div class="front face">
+        <img src="{{plato.url}}"/>
+        <div class="cesta_detail" *ngIf="cestaReference[menu.id+'_'+plato.id+'_'+menu.dia]">
+          {{ cestaReference[menu.id+'_'+plato.id+'_'+menu.dia] }}
+          <i class="fas fa-check-circle"></i>
+        </div>
+      </div>
+      <div class="back face center">
+        <div class="name">{{ plato.nombre }}</div>
+        <div class="name">
+          <input type="text" #cantidad value="{{ cestaReference[menu.id+'_'+plato.id+'_'+menu.dia] }}" (keyup.enter)="agregarACesta(menu.id, menu.nombre, plato.id, plato.nombre, null, cantidad.value, menu.dia)">
+        </div>
+        <div class="name">
+          <a (click)="agregarACesta(menu.id, menu.nombre, plato.id, plato.nombre, null, cantidad.value, menu.dia)" ><i class="fas fa-plus-circle"></i></a>
+          <a (click)="cantidad.value='';eliminarDeCesta(plato.id, menu.dia)" ><i class="fas fa-minus-circle"></i></a></div>
+      </div>
+    </div>
+  </div>
+</div>
+            
